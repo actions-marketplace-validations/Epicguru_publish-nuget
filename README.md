@@ -82,6 +82,7 @@ jobs:
 | TAG_FORMAT        | `v*`                               | Format of the git tag, `[*]` gets replaced with actual version                                                    |
 | NUGET_KEY         |                                    | API key to authenticate with NuGet server                                                                         |
 | NUGET_SOURCE      | `https://api.nuget.org`            | NuGet server uri hosting the packages, defaults to https://api.nuget.org                                          |
+| V3_FLAT_CONTAINER | `v3-flatcontainer`                 | The resource url segment used for fetching package content, defaults to v3-flatcontainer                          |
 | INCLUDE_SYMBOLS   | `false`                            | Flag to toggle pushing symbols along with nuget package to the server, disabled by default                        |
 | NO_BUILD          | `false`                            | Flag to toggle not building the project and letting pack command handle restoring & building, disabled by default |
 
