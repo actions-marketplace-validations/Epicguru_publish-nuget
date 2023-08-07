@@ -65,6 +65,9 @@ jobs:
 
           # Flag to toggle not building the project and letting pack command handle restoring & building, disabled by default
           # NO_BUILD: false
+
+          # Used to set the build configuration. Defaults to Release.
+          # CONFIGURATION: Release
 ```
 
 - Project gets published only if there's a `NUGET_KEY` configured in the repository
