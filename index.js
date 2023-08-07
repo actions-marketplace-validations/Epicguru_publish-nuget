@@ -36,6 +36,7 @@ class Action {
     this.noBuild = JSON.parse(
       process.env.INPUT_NO_BUILD || process.env.NO_BUILD
     );
+    this.configuration = process.env.INPUT_CONFIGURATION || process.env.CONFIGURATION || "Release";
   }
 
   _printErrorAndExit(msg) {
@@ -85,7 +86,7 @@ class Action {
       .forEach((fn) => fs.unlinkSync(fn));
 
     if (!this.noBuild) {
-      this._executeInProcess(`dotnet build -c Release ${this.projectFile}`);
+      this._executeInProcess(`dotnet build -c ${this.configuration} ${this.projectFile}`);
     }
 
     this._executeInProcess(
@@ -93,7 +94,7 @@ class Action {
         this.includeSymbols
           ? "--include-symbols -p:SymbolPackageFormat=snupkg"
           : ""
-      } -c Release ${this.projectFile} -o .`
+      } -c ${this.configuration} ${this.projectFile} -o .`
     );
 
     const packages = fs.readdirSync(".").filter((fn) => fn.endsWith("nupkg"));
