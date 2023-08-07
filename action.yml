@@ -1,5 +1,5 @@
-name: Publish NuGet@linch90
-author: linch90(@linch90) - fork from Alireza Sabouri (@alirezanet) - ford Rohith Reddy (@rohith)
+name: Publish NuGet@Epicguru
+author: Epicguru - fork from linch90(@linch90) - fork from Alireza Sabouri (@alirezanet) - ford Rohith Reddy (@rohith)
 description: Build, Pack & Publish a NuGet package with dotnet core on project version change
 
 inputs:
@@ -46,6 +46,10 @@ inputs:
     description: Flag to toggle not building the project and letting pack command handle restoring & building, disabled by default
     required: false
     default: false
+  CONFIGURATION:
+    description: Used to set the build configuration. Defaults to Release.
+    required: false
+    default: true
 
 outputs:
   VERSION:
